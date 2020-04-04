@@ -1,0 +1,93 @@
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<header>
+  <div id="logo">RESUME BUILDER</div>
+  <div id="menu">
+    <ul>
+      <li><a routerLink="/login">LOGIN</a></li>
+    </ul>
+  </div>
+</header>
+
+
+
+	<div class="main-w3layouts wrapper">
+		<h1>REGISTER HERE</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form (ngSubmit)='regfrom.valid && submit()' method="post" [formGroup]='registrationFormGroup' #regfrom='ngForm'>
+          <input class="text" appLowerCase type="text" formControlName='username' name="username" placeholder="Username" required="">
+          <span *ngIf="username.invalid && (username.dirty || username.touched || regfrom.submitted)">
+            <span *ngIf="username.errors.required">
+              Enter username
+            </span>
+            <span *ngIf="username.errors.minlength">
+              Username must be atleast 4 characters.
+            </span>
+          </span>
+					<input class="text email" appLowerCase type="email" formControlName='email' name="email" placeholder="Email" required="">
+
+          <span *ngIf="email.invalid && (email.dirty || email.touched || regfrom.submitted)">
+            <span *ngIf="email.errors.required">
+              Enter email
+            </span>
+            <span *ngIf="email.errors.pattern">
+              Enter valid email
+            </span>
+          </span>
+
+
+          <input class="text" type="password" formControlName='password' name="password" placeholder="Password" required="">
+
+          <span *ngIf="password.invalid && (password.dirty || password.touched || regfrom.submitted)">
+            <span *ngIf="password.errors.required">
+              Enter Password
+            </span>
+            <span *ngIf="password.errors.pattern">
+             Password should have atleast 8 characters with min 1 capital, 1 small alphabet, 1 numeric and 1 special character.
+            </span>
+          </span>
+
+          <input class="text w3lpass" type="password" formControlName='confirmPassword' name="password" placeholder="Confirm Password" required="">
+          <span *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched || regfrom.submitted)">
+            <span *ngIf="confirmPassword.errors.required">
+              Enter confirmPassword
+            </span>
+            <span *ngIf="confirmPassword.errors.samepassword">
+              Password and Confirm password should be same.
+            </span>
+          </span>
+
+
+
+          <div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Do you account? <a routerLink="/login"> Login Now!</a></p>
+			</div>
+		</div>
+
+		<div class="colorlibcopy-agile">
+			<p> @Resume-Builder <a href="#" target="_blank">Copy Right</a></p>
+		</div>
+
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
