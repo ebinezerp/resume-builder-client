@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LowerCaseDirective } from './directives/lower-case.directive';
+import { ResumeModule } from './resume/resume.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,12 @@ import { LowerCaseDirective } from './directives/lower-case.directive';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ResumeModule
   ],
-  providers: [],
+  providers: [
+    ResumeModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

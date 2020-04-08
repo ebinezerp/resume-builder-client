@@ -1,0 +1,6 @@
+enum ExperienceLevel {
+  BEGINNER,
+  INTERMEDIATE,
+  PROFESSIONAL,
+  EXPERT
+}
