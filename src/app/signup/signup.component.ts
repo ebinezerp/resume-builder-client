@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { User } from '../model/user';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +14,7 @@ export class SignupComponent implements OnInit {
   registrationFormGroup: FormGroup;
   user: User;
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -31,7 +33,15 @@ export class SignupComponent implements OnInit {
 
   submit(): void {
     this.user = this.registrationFormGroup.value;
-    console.log(this.user);
+    this.userService.register(this.user).subscribe(
+      (user) => {
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
   }
 
   get username() {
