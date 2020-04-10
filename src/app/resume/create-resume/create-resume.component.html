@@ -1,0 +1,35 @@
+<header>
+  <div id="logo">RESUME BUILDER</div>
+  <div id="menu">
+    <ul>
+      <li><a>Create Resume</a></li>
+      <li><a>My Resumes</a></li>
+      <li><a>Profile</a></li>
+    </ul>
+  </div>
+</header>
+
+
+<section class='container'>
+  <button class="tablink" (click)="tab('persoanl')" [ngClass]="{'active': currentTab=='personal'}">Personal</button>
+  <button class="tablink" (click)='tab("experience")' [ngClass]="{'active': currentTab=='experience'}">Experience</button>
+  <button class="tablink" (click)='tab("education")' [ngClass]="{'active': currentTab=='education'}">Education</button>
+  <button class="tablink" (click)='tab("skills")' [ngClass]="{'active': currentTab=='skills'}">Skills</button>
+  <div *ngIf="currentTab==='personal'" class="tabcontent">
+    <app-personal-details></app-personal-details>
+  </div>
+
+  <div *ngIf="currentTab==='experience'" class="tabcontent">
+    <app-experience-details></app-experience-details>
+  </div>
+
+  <div *ngIf="currentTab==='education'" class="tabcontent">
+   <app-educational-details></app-educational-details>
+  </div>
+
+  <div *ngIf="currentTab==='skills'" class="tabcontent">
+    <app-skills></app-skills>
+  </div> <div>
+
+  </div>
+</section>

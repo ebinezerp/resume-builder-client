@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-template',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectTemplateComponent implements OnInit {
 
-  constructor() { }
+  selectedTemplate: number;
+  errorMessage: string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+
+  createResume() {
+    if (this.selectedTemplate === undefined) {
+      this.errorMessage = 'Select Any Template';
+      alert(this.errorMessage);
+    } else {
+      this.router.navigate(['/create-resume'], {queryParams:  { temp: this.selectedTemplate }});
+    }
   }
 
 }

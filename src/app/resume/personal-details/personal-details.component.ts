@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ResumeService } from 'src/app/services/resume.service';
+import { Resume } from 'src/app/model/resume';
+import { PersonalDetails } from 'src/app/model/personal-details';
 
 @Component({
   selector: 'app-personal-details',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  constructor() { }
+  resume: Resume;
+
+  constructor(private resumeService: ResumeService) {
+    this.resume = resumeService.getResume();
+    this.resume.personalDetails = new PersonalDetails();
+  }
 
   ngOnInit() {
   }
