@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { LowerCaseDirective } from './directives/lower-case.directive';
 import { ResumeModule } from './resume/resume.module';
 import { UserService } from './services/user.service';
+import { DirectiveModule } from './directive/directive.module';
 
 
 
@@ -17,8 +18,7 @@ import { UserService } from './services/user.service';
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent,
-    LowerCaseDirective
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,8 @@ import { UserService } from './services/user.service';
     ReactiveFormsModule,
     FormsModule,
     ResumeModule,
-    HttpClientModule
+    HttpClientModule,
+    DirectiveModule
   ],
   providers: [
     ResumeModule,

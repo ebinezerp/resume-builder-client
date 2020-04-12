@@ -190,7 +190,7 @@ h1 {
   padding: 3em;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
   font-size: 0.9em;
   color: #fff;
   font-weight: 100;
@@ -210,7 +210,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-family: 'Roboto', sans-serif;
 }
 
-input.email, input.text.w3lpass {
+input.email, input.text.w3lpass,input.radio {
   margin: 2em 0;
 }
 
@@ -303,14 +303,14 @@ input[type="submit"]:hover {
   position: relative;
 }
 
-input.checkbox {
+input.checkbox, input.radio {
   background: #8DC26F;
   cursor: pointer;
   width: 1.2em;
   height: 1.2em;
 }
 
-input.checkbox:before {
+input.checkbox:before, input.radio:before {
   content: "";
   position: absolute;
   width: 1.2em;
@@ -319,7 +319,7 @@ input.checkbox:before {
   cursor: pointer;
 }
 
-input.checkbox:after {
+input.checkbox:after,input.radio:after {
   content: "";
   position: absolute;
   top: 0px;
@@ -334,7 +334,7 @@ input.checkbox:after {
   transition: .4s ease-in-out;
 }
 
-input.checkbox:checked:after {
+input.checkbox:checked:after, input.radio:checked:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
@@ -346,7 +346,7 @@ input.checkbox:checked:after {
   border-right-color: transparent;
 }
 
-.anim input.checkbox:checked:after {
+.anim input.checkbox:checked:after,.anim input.radio:checked:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);

@@ -8,15 +8,22 @@ import { CreateResumeComponent } from './create-resume/create-resume.component';
 import { EducationalDetailsComponent } from './educational-details/educational-details.component';
 import { ExperienceDetailsComponent } from './experience-details/experience-details.component';
 import { SkillsComponent } from './skills/skills.component';
+import { LowerCaseDirective } from '../directives/lower-case.directive';
+import { DirectiveModule } from '../directive/directive.module';
 
 
 
 @NgModule({
-  declarations: [SelectTemplateComponent, PersonalDetailsComponent, CreateResumeComponent, EducationalDetailsComponent, ExperienceDetailsComponent, SkillsComponent],
+  declarations: [
+    SelectTemplateComponent, PersonalDetailsComponent,
+    CreateResumeComponent, EducationalDetailsComponent,
+    ExperienceDetailsComponent, SkillsComponent
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DirectiveModule
   ]
 })
 export class ResumeModule { }

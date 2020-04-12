@@ -1,1 +1,103 @@
-Personal Details
+<section class='container'>
+  <form (ngSubmit)='form.valid && submit()' #form='ngForm'>
+    <div class="details">
+      <input type='text' appLowerCase [(ngModel)]="personalDetails.fullname" pattern="[a-z ]{8,}" required='required'
+        #fullname='ngModel' name='fullname' placeholder="Fullname" />
+      <span class='errorMessages' *ngIf="(form.submitted || fullname.dirty || fullname.touched) && fullname.invalid">
+        <span *ngIf="fullname.errors.required">
+          Enter fullname
+        </span>
+        <span *ngIf="fullname.errors.pattern">
+          Only lowercase and min 8 characters
+        </span>
+      </span>
+      <input type='email' [(ngModel)]="personalDetails.email" required #email='ngModel' name='email'
+        placeholder="Email" />
+      <span class='errorMessages' *ngIf="(form.submitted || email.dirty || email.touched) && email.invalid ">
+        <span *ngIf="email.errors?.required">
+          Enter email
+        </span>
+      </span>
+      <input type='text' [(ngModel)]="personalDetails.mobile" pattern="[6-9][0-9]{9}" required #mobile='ngModel'
+        name='mobile' placeholder="Mobile" />
+      <span class='errorMessages' *ngIf="(form.submitted || mobile.dirty || mobile.touched) && mobile.invalid ">
+        <span *ngIf="mobile.errors?.required">
+          Enter mobile number
+        </span>
+        <span *ngIf="mobile.errors?.pattern">
+          Enter valid mobile number
+        </span>
+      </span>
+      <input type='date' [(ngModel)]="personalDetails.dateOfBirth" required #dateOfBirth='ngModel' name='dateOfBirth'
+        placeholder="dateOfBirth" />
+      <span class='errorMessages'
+        *ngIf="(form.submitted || dateOfBirth.dirty || dateOfBirth.touched) && dateOfBirth.invalid">
+        <span *ngIf="dateOfBirth.errors?.required">
+          Enter Date of Birth
+        </span>
+      </span>
+      <div>
+        <label>
+          <h3>Gender</h3>
+        </label>
+        <div class='radio-group'>
+          <div>
+            <input type='radio' [(ngModel)]="personalDetails.gender" required="required" #gender='ngModel' name='gender'
+              value='male' />Male
+          </div>
+          <div>
+            <input type='radio' [(ngModel)]="personalDetails.gender" required="required" #gender='ngModel' name='gender'
+              value='female' />Female
+          </div>
+        </div>
+        <div style='display:block;'>
+          <span class='errorMessages' *ngIf="form.submitted">
+            <span *ngIf="gender.invalid">
+              Select Gender value.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <label>
+          <h3>Marital Status</h3>
+        </label>
+        <input type='radio' [(ngModel)]="personalDetails.maritalStatus" required #maritalStatus='ngModel'
+          name='maritalStatus' value='MARRIED' />Married
+        <input type='radio' [(ngModel)]="personalDetails.maritalStatus" required #maritalStatus='ngModel'
+          name='maritalStatus' value='SINGLE' />Single
+        <input type='radio' [(ngModel)]="personalDetails.maritalStatus" required #maritalStatus='ngModel'
+          name='maritalStatus' value='WIDOWER' />Widower
+        <input type='radio' [(ngModel)]="personalDetails.maritalStatus" required #maritalStatus='ngModel'
+          name='maritalStatus' value='WIDOW' />Widow
+        <input type='radio' [(ngModel)]="personalDetails.maritalStatus" required #maritalStatus='ngModel'
+          name='maritalStatus' value='NOT INTERESTED TO SHARE' />Not Intereseted To Share
+        <div style='display:block'>
+          <span class='errorMessages' *ngIf="form.submitted">
+            <span *ngIf="maritalStatus.invalid">
+              Select Marital Status
+            </span>
+          </span>
+        </div>
+      </div>
+      <input type='text' [(ngModel)]="personalDetails.alternativeMobile" pattern='[6-9][0-9]{9}' required
+        #alternativeMobile='ngModel' name='alternativeMobile' placeholder="Alternative Mobile Number" />
+      <span class='errorMessages'
+        *ngIf="(form.submitted || alternativeMobile.dirty || alternativeMobile.touched) && alternativeMobile.invalid">
+        <span *ngIf="alternativeMobile.errors?.required">
+          Enter Alternative mobile number.
+        </span>
+        <span *ngIf="alternativeMobile.errors?.pattern">
+          Enter a valid mobile number.
+        </span>
+      </span>
+      <input type='text' [(ngModel)]="personalDetails.currentLocation" name='currentLocation' required
+        #currentLocation='ngModel' placeholder="Current Location" />
+      <span class='errorMessages'
+        *ngIf="(form.submitted || currentLocation.dirty || currentLocation.touched) && currentLocation.invalid">
+        Enter current location
+      </span>
+      <input type='submit' value='Next' />
+    </div>
+  </form>
+</section>

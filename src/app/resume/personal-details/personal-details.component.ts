@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ResumeService } from 'src/app/services/resume.service';
-import { Resume } from 'src/app/model/resume';
 import { PersonalDetails } from 'src/app/model/personal-details';
 
 @Component({
@@ -10,14 +9,20 @@ import { PersonalDetails } from 'src/app/model/personal-details';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  resume: Resume;
+  personalDetails: PersonalDetails;
+
+  @Output() personalDetailsSubmit = new EventEmitter();
+
 
   constructor(private resumeService: ResumeService) {
-    this.resume = resumeService.getResume();
-    this.resume.personalDetails = new PersonalDetails();
+    this.personalDetails = new PersonalDetails();
   }
 
   ngOnInit() {
+  }
+
+  submit() {
+    this.personalDetailsSubmit.emit(this.personalDetails);
   }
 
 }

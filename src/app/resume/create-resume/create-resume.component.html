@@ -11,12 +11,12 @@
 
 
 <section class='container'>
-  <button class="tablink" (click)="tab('persoanl')" [ngClass]="{'active': currentTab=='personal'}">Personal</button>
+  <button class="tablink" (click)="tab('personal')" [ngClass]="{'active': currentTab=='personal'}">Personal</button>
   <button class="tablink" (click)='tab("experience")' [ngClass]="{'active': currentTab=='experience'}">Experience</button>
   <button class="tablink" (click)='tab("education")' [ngClass]="{'active': currentTab=='education'}">Education</button>
   <button class="tablink" (click)='tab("skills")' [ngClass]="{'active': currentTab=='skills'}">Skills</button>
   <div *ngIf="currentTab==='personal'" class="tabcontent">
-    <app-personal-details></app-personal-details>
+    <app-personal-details (personalDetailsSubmit) = 'onPersonalDetailsSubmit($event)'></app-personal-details>
   </div>
 
   <div *ngIf="currentTab==='experience'" class="tabcontent">
