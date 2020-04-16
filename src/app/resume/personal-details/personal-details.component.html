@@ -1,7 +1,7 @@
 <section class='container'>
   <form (ngSubmit)='form.valid && submit()' #form='ngForm'>
     <div class="details">
-      <input type='text' appLowerCase [(ngModel)]="personalDetails.fullname" pattern="[a-z ]{8,}" required='required'
+      <input type='text' [(ngModel)]="personalDetails.fullname" pattern="[a-zA-Z ]{8,}" required='required'
         #fullname='ngModel' name='fullname' placeholder="Fullname" />
       <span class='errorMessages' *ngIf="(form.submitted || fullname.dirty || fullname.touched) && fullname.invalid">
         <span *ngIf="fullname.errors.required">
@@ -97,6 +97,7 @@
         *ngIf="(form.submitted || currentLocation.dirty || currentLocation.touched) && currentLocation.invalid">
         Enter current location
       </span>
+      <input (click)='save()' type='button' value='Save'/>
       <input type='submit' value='Next' />
     </div>
   </form>

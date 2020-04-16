@@ -1,0 +1,54 @@
+
+
+.details{
+  background-color: #76b852 !important;
+  padding:4%;
+}
+
+input[type="text"],input[type='date'],input[type='month'],input[type='year'], input[type='email'], textarea{
+  background-position:0;
+  margin-bottom: 10px;
+}
+input[type='submit'],input[type='button']{
+  background-color: #555;
+}
+
+input::placeholder{
+  color:white;
+  font-weight: 700;
+}
+
+.radio-group{
+  display: flex;
+}
+
+.errorMessages{
+  color:red;
+  padding:5px;
+}
+
+.experience-block{
+  margin-bottom: 50px;
+  box-shadow: 10px 10px 0px 0px;
+}
+
+.experience-block-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading{
+  display:block;
+  padding:10px;
+  font-size: 25px;
+  font-weight: 700;
+  color:black;
+}
+
+.delete{
+  background-color:red;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

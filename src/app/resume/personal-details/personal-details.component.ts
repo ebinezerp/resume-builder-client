@@ -15,13 +15,23 @@ export class PersonalDetailsComponent implements OnInit {
 
 
   constructor(private resumeService: ResumeService) {
-    this.personalDetails = new PersonalDetails();
+    const data = localStorage.getItem('personalDetails');
+    if ( data != null) {
+      this.personalDetails = JSON.parse(data);
+    } else {
+      this.personalDetails = new PersonalDetails();
+    }
   }
 
   ngOnInit() {
   }
 
+  save() {
+    localStorage.setItem('personalDetails', JSON.stringify(this.personalDetails));
+  }
+
   submit() {
+    this.save();
     this.personalDetailsSubmit.emit(this.personalDetails);
   }
 

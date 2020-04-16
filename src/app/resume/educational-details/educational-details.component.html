@@ -1,1 +1,30 @@
-<p>educational-details works!</p>
+<section class='container'>
+  <form [formGroup]='educationDetailsFormGroup' (ngSubmit)='form.valid && submit()' #form='ngForm'>
+    <div class="details">
+      <div formArrayName='educationDetails'>
+        <div *ngFor="let contorl of educationDetails.controls; index as i">
+          <div [formGroupName]='i' class='education-block'>
+            <div class='education-block-header'>
+              <h3 class='heading'>Education Details</h3>
+              <button (click)='delete(i)' class='delete'>Delete</button>
+            </div>
+            <input type='text' name='institutionName' formControlName='institutionName' placeholder="Institution Name" />
+            <input type="text" name="course" formControlName='course' placeholder="Course">
+            <input type="text" name="percentage" formControlName='percentage' placeholder='Percentage'>
+            <label>Start Year</label>
+            <input type="year" name="startYear" formControl='startYear' />
+            <label>End Year</label>
+            <input type='year' name='endYear' formControlName='endYear' />
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type='button' value='Add One More Experience' (click)='addOneMoreEducation()' />
+      </div>
+      <div>
+        <input (click)='save()' type='button' value='SAVE' />
+        <input type='submit' value='NEXT' />
+      </div>
+    </div>
+  </form>
+</section>

@@ -20,11 +20,11 @@
   </div>
 
   <div *ngIf="currentTab==='experience'" class="tabcontent">
-    <app-experience-details></app-experience-details>
+    <app-experience-details (experienceDetailsSubmit)= 'onExperienceDetailsSubmit($event)'></app-experience-details>
   </div>
 
   <div *ngIf="currentTab==='education'" class="tabcontent">
-   <app-educational-details></app-educational-details>
+   <app-educational-details (educationDetailsSubmit) = 'onEducationDetailsSubmit($event)'></app-educational-details>
   </div>
 
   <div *ngIf="currentTab==='skills'" class="tabcontent">

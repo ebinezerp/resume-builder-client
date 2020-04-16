@@ -1,1 +1,43 @@
-<p>experience-details works!</p>
+<section class='container'>
+  <form [formGroup]="experienceFormGroup" (ngSubmit)='form.valid && submit()' #form='ngForm'>
+    <div class="details">
+      <div formArrayName="experiences">
+        <div *ngFor="let control of experiences.controls; index as i">
+          <div [formGroupName]="i" class='block'>
+            <div class='experience-block-header'>
+              <h3 class='heading'>Experience Details</h3>
+              <button (click)='deleteExp(i)' class='delete'>Delete</button>
+            </div>
+            <input type='text' name='organisation' formControlName="organisation" placeholder="Organisation" />
+            <input type='text' name='designation' formControlName="designation" placeholder="Designation" />
+            <label>Start Month and Year</label>
+            <input type="month" name="startDate" formControlName="startMonthAndYear"
+              placeholder="Start Month And year" />
+            <input type='radio' name='currentOrganisation' [value]='true' formControlName="currentOrganisation" />
+            &nbsp;
+            Current Organisation
+            <input type='radio' name='currentOrganisation' [value]='false' formControlName="currentOrganisation" />
+            &nbsp;
+            Former Organisation
+            <div *ngIf="experiences.controls[0].get('currentOrganisation').value!=true">
+              <label>End Month and Year</label>
+              <input type='month' name='endDate' formControlName="endMonthAndYear" />
+            </div>
+            <div style='display:block'>
+              <label style='display:block'>Job Role Description</label>
+              <textarea name="jobRoleDescription" id="jobRoleDescription" cols="30" rows="10">
+            </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type='button' value='Add One More Experience' (click)='addNewExperience()' />
+      </div>
+      <div>
+        <input (click)='save()' type='button' value='SAVE' />
+        <input type='submit' value='NEXT' />
+      </div>
+    </div>
+  </form>
+</section>
